@@ -18,7 +18,6 @@
 <script>
 import { Minimum } from 'laravel-nova'
 import BaseValueMetric from './Base/ValueMetric'
-import ValueMetric from '@/components/Metrics/ValueMetric'
 import CountMetric from "./Base/CountMetric";
 
 export default {

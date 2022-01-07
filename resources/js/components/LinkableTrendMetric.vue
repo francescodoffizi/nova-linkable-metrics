@@ -19,7 +19,7 @@
 import _ from 'lodash'
 import { InteractsWithDates, Minimum } from 'laravel-nova'
 import BaseTrendMetric from './Base/TrendMetric'
-import TrendMetric from '@/components/Metrics/ValueMetric'
+import TrendMetric from "./Base/TrendMetric";
 
 export default {
     name: 'TrendMetric',
