@@ -16,23 +16,26 @@ trait LinkableMultiple
     /**
      * Set a link to a route
      */
-    public function route($routeName, array $params = [], array $query = [])
+    public function route($urls)
     {
-        $route = [
-            'name' => $routeName,
-            'params' => $params,
-            'query' => $query
-        ];
-        $urls[] = $this->url(json_encode($route));
-        return $urls;
+        $routes = [];
+        foreach ($urls as $url) {
+            $route = [
+                'name' => $url['routeName'],
+                'params' => $url['params'],
+                'query' => $url['query']
+            ];
+            $routes[] = $route;
+        }
+        return $this->urls(json_encode($routes));
     }
 
     /**
      * Which url should the metric link to
      */
-    public function url($url)
+    public function urls($urls)
     {
-        return $this->withMeta(['url' => $url]);
+        return $this->withMetza(['urls' => $urls]);
     }
 
 }
