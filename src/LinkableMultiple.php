@@ -2,6 +2,8 @@
 
 namespace SaintSystems\Nova\LinkableMetrics;
 
+use Illuminate\Database\Eloquent\Builder;
+
 trait LinkableMultiple
 {
     public $urls = [''];
@@ -33,15 +35,4 @@ trait LinkableMultiple
         return $this->withMeta(['url' => $url]);
     }
 
-    /**
-     * Prepare the metric for JSON serialization.
-     *
-     * @return array
-     */
-    public function jsonSerialize()
-    {
-        return array_merge(parent::jsonSerialize(), [
-            'urls' => $this->urls,
-        ]);
-    }
 }
