@@ -35,7 +35,7 @@ trait LinkableMultiple
      */
     public function urls($urls)
     {
-        return $this->withMetza(['urls' => $urls]);
+        return $this->withMeta(['urls' => $urls]);
     }
 
 }
