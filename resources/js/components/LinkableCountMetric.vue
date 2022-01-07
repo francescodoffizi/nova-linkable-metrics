@@ -17,7 +17,7 @@
 
 <script>
 import { Minimum } from 'laravel-nova'
-import BaseValueMetric from './Base/ValueMetric'
+import BaseCountMetric from './Base/CountMetric'
 import CountMetric from "./Base/CountMetric";
 
 export default {
@@ -25,7 +25,7 @@ export default {
     extends: CountMetric,
 
     components: {
-        BaseValueMetric
+        BaseCountMetric
     },
 
     props: {

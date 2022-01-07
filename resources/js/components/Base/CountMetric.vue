@@ -1,7 +1,7 @@
 <template>
   <loading-card :loading="loading" class="px-6 py-4">
     <h3 class="flex mb-3 text-base text-80 font-bold" v-for="option in urls">
-        <router-link tag="a" :to="this.link" :title="title" class="cursor-pointer text-primary dim no-underline">
+        <router-link tag="a" :to="option" :title="title" class="cursor-pointer text-primary dim no-underline">
           {{ title }}
           <span class="ml-auto font-semibold text-70 text-sm"
           >({{ formattedTotal }} {{ __('total') }})</span
