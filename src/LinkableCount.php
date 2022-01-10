@@ -4,20 +4,37 @@ namespace SaintSystems\Nova\LinkableMetrics;
 
 trait LinkableCount
 {
-    use LinkableMultiple;
+    /**
+     * The metric value url.
+     *
+     * @var string
+     */
+    public $urls = [];
 
     /**
-     * Create a new value metric count result’.
-     *
-     * @param  mixed  $value
-     * @return \SaintSystems\Nova\LinkableMetrics\LinkableCountPartitionResult
+     * Set a link to a route
      */
-    public function result(array $value)
+    public function route($routes)
     {
-        $linkablePartitionResult = new LinkableCountPartitionResult($value);
-        if (!empty($this->urls)) {
-            $linkablePartitionResult->urls($this->urls);
+        foreach ($routes as $route) {
+            $route = [
+                'name' => $route['name'],
+                'params' => $route['params'],
+                'query' => $route['query']
+            ];
+            $this->urls[] = json_encode($route);
         }
-        return $linkablePartitionResult;
+    }
+
+    /**
+     * Prepare the metric for JSON serialization.
+     *
+     * @return array
+     */
+    public function jsonSerialize()
+    {
+        return array_merge(parent::jsonSerialize(), [
+            'urls' => $this->urls,
+        ]);
     }
 }
