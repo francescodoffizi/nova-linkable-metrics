@@ -11,6 +11,11 @@ trait LinkableCount
      */
     public $urls = [];
 
+    public function component()
+    {
+        return 'linkable-'.$this->component;
+    }
+
     /**
      * Set a link to a route
      */
