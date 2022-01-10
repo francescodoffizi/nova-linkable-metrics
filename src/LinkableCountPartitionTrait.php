@@ -11,7 +11,7 @@ trait LinkableCountPartitionTrait {
      * @param  mixed  $value
      * @return LinkableCountPartitionResult
      */
-    public function result(array $value)
+    public function result($value)
     {
         $linkablePartitionResult = new LinkableCountPartitionResult($value);
         if (!empty($this->urls)) {
