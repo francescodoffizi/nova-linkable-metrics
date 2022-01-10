@@ -13,7 +13,7 @@ trait LinkableCountPartitionTrait {
      */
     public function result($value)
     {
-        $linkablePartitionResult = new LinkableCountPartitionResult([$value]);
+        $linkablePartitionResult = new LinkableCountPartitionResult($value);
         if (!empty($this->urls)) {
             $linkablePartitionResult->urls = $this->urls;
         }
