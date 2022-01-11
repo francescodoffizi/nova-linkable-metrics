@@ -46,11 +46,10 @@ export default {
   name: 'CountMetric',
 
   props: {
-    loading: true,
-    title: '',
+    loading: Boolean,
+    title: String,
     helpText: {},
     helpWidth: {},
-    chartData: [],
     urls: [''],
   },
 
