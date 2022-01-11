@@ -82,11 +82,9 @@ export default {
     name: 'PartitionMetric',
 
     props: {
-        loading: Boolean,
         title: String,
         helpText: {},
         helpWidth: {},
-        chartData: Array,
         urls: [''],
     },
 
