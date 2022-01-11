@@ -62,10 +62,10 @@ export default {
         fetch() {
             this.loading = true
 
-            Minimum(Nova.request(this.metricEndpoint)).then(({ data: { value: { value }, urls: [urls] } }) => {
+            Minimum(Nova.request(this.metricEndpoint)).then(({ data: { value: { value }, urls: [] } }) => {
                 this.chartData = value
                 this.loading = false
-                this.urls = urls;
+                this.urls = data.urls;
             })
         },
     },
