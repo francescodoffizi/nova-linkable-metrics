@@ -2,17 +2,18 @@
     <loading-card :loading="loading" class="px-6 py-4">
         <h3 class="flex mb-3 text-base text-80 font-bold">
             <template v-if="url">
-                <router-link tag="a" :to="this.link" :title="title" class="cursor-pointer text-primary dim no-underline">
+                <router-link tag="a" :to="this.link" :title="title"
+                             class="cursor-pointer text-primary dim no-underline">
                     {{ title }}
                     <span class="ml-auto font-semibold text-70 text-sm"
-                        >({{ formattedTotal }} {{ __('total') }})</span
+                    >({{ formattedTotal }} {{ __('total') }})</span
                     >
                 </router-link>
             </template>
             <template v-else>
                 {{ title }}
                 <span class="ml-auto font-semibold text-70 text-sm"
-                    >({{ formattedTotal }} {{ __('total') }})</span
+                >({{ formattedTotal }} {{ __('total') }})</span
                 >
             </template>
         </h3>
@@ -20,17 +21,17 @@
         <div v-if="helpText" class="absolute pin-r pin-b p-2">
             <tooltip trigger="hover">
                 <icon
-                type="help"
-                viewBox="0 0 17 17"
-                height="16"
-                width="16"
-                class="cursor-pointer text-60 -mb-1"
+                    type="help"
+                    viewBox="0 0 17 17"
+                    height="16"
+                    width="16"
+                    class="cursor-pointer text-60 -mb-1"
                 />
 
                 <tooltip-content
-                slot="content"
-                v-html="helpText"
-                :max-width="helpWidth"
+                    slot="content"
+                    v-html="helpText"
+                    :max-width="helpWidth"
                 />
             </tooltip>
         </div>
@@ -88,37 +89,38 @@ export default {
         urls: [''],
     },
 
-    data: () => ({ chartist: null }),
+    data: () => ({chartist: null}),
 
     watch: {
-        chartData: function(newData, oldData) {
+        chartData: function (newData, oldData) {
             this.renderChart()
         },
     },
 
     mounted() {
-        document.addEventListener('DOMContentLoaded',function() {
-            this.chartist = new Chartist.Pie(this.$refs.chart, this.formattedChartData, {
-                donut: true,
-                donutWidth: 10,
-                donutSolid: true,
-                startAngle: 270,
-                showLabel: false,
-            })
-
-            this.chartist.on('draw', context => {
-                if (context.type === 'slice') {
-                    context.element.attr({style: `fill: ${context.meta.color} !important`})
-                }
-            })
-        });
     },
 
     methods: {
         renderChart() {
-            document.addEventListener('DOMContentLoaded',function() {
+            if (!this.chartist) {
+                this.chartist = new Chartist.Pie(this.$refs.chart, this.formattedChartData, {
+                    donut: true,
+                    donutWidth: 10,
+                    donutSolid: true,
+                    startAngle: 270,
+                    showLabel: false,
+                });
+
+                this.chartist.on('draw', context => {
+                    if (context.type === 'slice') {
+                        context.element.attr({style: `fill: ${context.meta.color} !important`})
+                    }
+                });
+            }
+
+            if (this.chartist) {
                 this.chartist.update(this.formattedChartData);
-            });
+            }
         },
 
         getItemColor(item, index) {
@@ -143,7 +145,7 @@ export default {
         },
 
         formattedChartData() {
-            return { labels: this.formattedLabels, series: this.formattedData }
+            return {labels: this.formattedLabels, series: this.formattedData}
         },
 
         formattedItems() {
@@ -173,7 +175,7 @@ export default {
                 .map((item, index) => {
                     return {
                         value: item.value,
-                        meta: { color: this.getItemColor(item, index) },
+                        meta: {color: this.getItemColor(item, index)},
                     }
                 })
                 .value()
