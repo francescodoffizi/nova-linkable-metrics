@@ -1,21 +1,10 @@
 <template>
-    <loading-card :loading="loading" class="px-6 py-4">
+    <loading-card :loading="this.loading" class="px-6 py-4">
         <h3 class="flex mb-3 text-base text-80 font-bold">
-            <template v-if="url">
-                <router-link tag="a" :to="this.link" :title="title"
-                             class="cursor-pointer text-primary dim no-underline">
-                    {{ title }}
-                    <span class="ml-auto font-semibold text-70 text-sm"
-                    >({{ formattedTotal }} {{ __('total') }})</span
-                    >
-                </router-link>
-            </template>
-            <template v-else>
-                {{ title }}
-                <span class="ml-auto font-semibold text-70 text-sm"
-                >({{ formattedTotal }} {{ __('total') }})</span
-                >
-            </template>
+            {{ title }}
+            <span class="ml-auto font-semibold text-70 text-sm"
+            >({{ formattedTotal }} {{ __('total') }})</span
+            >
         </h3>
 
         <div v-if="helpText" class="absolute pin-r pin-b p-2">
@@ -116,6 +105,7 @@ export default {
     methods: {
         renderChart() {
             this.chartist.update(this.formattedChartData);
+            this.loading = false;
         },
 
         getItemColor(item, index) {
