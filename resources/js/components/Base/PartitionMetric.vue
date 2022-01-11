@@ -97,19 +97,22 @@ export default {
     },
 
     mounted() {
-        this.chartist = new Chartist.Pie(this.$refs.chart, this.formattedChartData, {
-            donut: true,
-            donutWidth: 10,
-            donutSolid: true,
-            startAngle: 270,
-            showLabel: false,
-        })
+        document.addEventListener('DOMContentLoaded',function() {
 
-        this.chartist.on('draw', context => {
-            if (context.type === 'slice') {
-                context.element.attr({ style: `fill: ${context.meta.color} !important` })
-            }
-        })
+            this.chartist = new Chartist.Pie(this.$refs.chart, this.formattedChartData, {
+                donut: true,
+                donutWidth: 10,
+                donutSolid: true,
+                startAngle: 270,
+                showLabel: false,
+            })
+
+            this.chartist.on('draw', context => {
+                if (context.type === 'slice') {
+                    context.element.attr({style: `fill: ${context.meta.color} !important`})
+                }
+            })
+        });
     },
 
     methods: {
