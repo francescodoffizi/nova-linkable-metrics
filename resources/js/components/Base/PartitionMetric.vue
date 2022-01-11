@@ -98,7 +98,7 @@ export default {
     },
 
     mounted() {
-        this.chartist = new Chartist.Pie(this.$refs.chart, this.formattedChartData, {
+        this.chartist = new Chartist.Pie('ct-chart', this.formattedChartData, {
             donut: true,
             donutWidth: 10,
             donutSolid: true,
