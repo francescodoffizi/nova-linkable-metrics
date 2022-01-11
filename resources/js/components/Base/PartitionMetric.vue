@@ -1,5 +1,5 @@
 <template>
-    <loading-card :loading="this.loading" class="px-6 py-4">
+    <loading-card :loading="false" class="px-6 py-4">
         <h3 class="flex mb-3 text-base text-80 font-bold">
             {{ title }}
             <span class="ml-auto font-semibold text-70 text-sm"
