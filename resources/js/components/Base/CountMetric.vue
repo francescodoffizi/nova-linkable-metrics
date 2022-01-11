@@ -1,12 +1,14 @@
 <template>
   <loading-card :loading="loading" class="px-6 py-4">
-    <h3 class="flex mb-3 text-base text-80 font-bold" v-for="option in urls">
+    <h3 class="flex mb-3 text-base text-80 font-bold">
+      <template v-for="option in urls">
         <router-link tag="a" :to="option" :title="title" class="cursor-pointer text-primary dim no-underline">
           {{ title }}
           <span class="ml-auto font-semibold text-70 text-sm"
           >({{ formattedTotal }} {{ __('total') }})</span
           >
         </router-link>
+      </template>
     </h3>
 
     <div v-if="helpText" class="absolute pin-r pin-b p-2">
@@ -115,7 +117,7 @@ export default {
   computed: {
 
     link() {
-      return JSON.parse(this.urls);
+      return JSON.parse(this.url);
     },
 
     chartClasses() {
