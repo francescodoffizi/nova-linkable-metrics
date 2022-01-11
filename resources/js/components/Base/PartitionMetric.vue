@@ -27,14 +27,14 @@
 
         <div class="overflow-hidden overflow-y-auto max-h-90px">
             <ul class="list-reset">
-                <li v-for="(item, index) in formattedItems" class="text-xs text-80 leading-normal">
+                <li v-for="item in formattedItems" class="text-xs text-80 leading-normal">
                     <span
                         class="inline-block rounded-full w-2 h-2 mr-2"
                         :style="{
                             backgroundColor: item.color,
                         }"
                     />
-                    <router-link tag="a" :to="urls[index]" :title="title"
+                    <router-link tag="a" :to="item.url" :title="item.url"
                                  class="cursor-pointer text-primary dim no-underline">
                         {{ item.label }} ({{ item.value }} - {{ item.percentage }}%)
                     </router-link>
@@ -140,6 +140,7 @@ export default {
                         label: item.label,
                         value: item.value,
                         color: this.getItemColor(item, index),
+                        url: this.urls[index],
                         percentage:
                             this.formattedTotal > 0
                                 ? ((item.value * 100) / this.formattedTotal).toFixed(2)
