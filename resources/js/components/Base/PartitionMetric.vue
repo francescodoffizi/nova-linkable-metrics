@@ -98,29 +98,24 @@ export default {
     },
 
     mounted() {
+        this.chartist = new Chartist.Pie(this.$refs.chart, this.formattedChartData, {
+            donut: true,
+            donutWidth: 10,
+            donutSolid: true,
+            startAngle: 270,
+            showLabel: false,
+        })
+
+        this.chartist.on('draw', context => {
+            if (context.type === 'slice') {
+                context.element.attr({style: `fill: ${context.meta.color} !important`})
+            }
+        })
     },
 
     methods: {
         renderChart() {
-            if (!this.chartist) {
-                this.chartist = new Chartist.Pie(this.$refs.chart, this.formattedChartData, {
-                    donut: true,
-                    donutWidth: 10,
-                    donutSolid: true,
-                    startAngle: 270,
-                    showLabel: false,
-                });
-
-                this.chartist.on('draw', context => {
-                    if (context.type === 'slice') {
-                        context.element.attr({style: `fill: ${context.meta.color} !important`})
-                    }
-                });
-            }
-
-            if (this.chartist) {
-                this.chartist.update(this.formattedChartData);
-            }
+            this.chartist.update(this.formattedChartData);
         },
 
         getItemColor(item, index) {
@@ -131,7 +126,7 @@ export default {
     computed: {
 
         link() {
-            return JSON.parse(this.url);
+            return JSON.parse(this.urls);
         },
 
         chartClasses() {
