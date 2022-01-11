@@ -98,7 +98,6 @@ export default {
 
     mounted() {
         document.addEventListener('DOMContentLoaded',function() {
-
             this.chartist = new Chartist.Pie(this.$refs.chart, this.formattedChartData, {
                 donut: true,
                 donutWidth: 10,
@@ -117,7 +116,9 @@ export default {
 
     methods: {
         renderChart() {
-            this.chartist.update(this.formattedChartData)
+            document.addEventListener('DOMContentLoaded',function() {
+                this.chartist.update(this.formattedChartData);
+            });
         },
 
         getItemColor(item, index) {
