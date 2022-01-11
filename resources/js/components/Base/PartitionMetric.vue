@@ -106,7 +106,7 @@ export default {
         renderChart() {
             this.chartist.update(this.formattedChartData);
             this.loading = false;
-            console.log(this.cards.urls);
+            console.log(this.card.urls);
         },
 
         getItemColor(item, index) {
