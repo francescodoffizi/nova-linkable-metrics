@@ -37,7 +37,7 @@
 
         <div class="overflow-hidden overflow-y-auto max-h-90px">
             <ul class="list-reset">
-                <li v-for="item in formattedItems" class="text-xs text-80 leading-normal">
+                <li v-for="(item, index) in formattedItems" class="text-xs text-80 leading-normal">
                     <span
                         class="inline-block rounded-full w-2 h-2 mr-2"
                         :style="{
