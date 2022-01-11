@@ -46,7 +46,6 @@ export default {
   name: 'CountMetric',
 
   props: {
-    loading: Boolean,
     title: String,
     helpText: {},
     helpWidth: {},
