@@ -1,5 +1,5 @@
 <template>
-    <BasePartitionMetric
+    <BaseCountMetric
         :title="card.name"
         :chart-data="chartData"
         :loading="loading"
