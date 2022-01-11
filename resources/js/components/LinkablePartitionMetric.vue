@@ -63,10 +63,9 @@ export default {
             this.loading = true
 
             Minimum(Nova.request(this.metricEndpoint)).then((data) => {
-                console.log(data);
-                this.chartData = data.value
+                this.chartData = data.data.value
                 this.loading = false
-                this.urls = data.urls;
+                this.urls = data.data.value.urls;
             })
         },
     },
