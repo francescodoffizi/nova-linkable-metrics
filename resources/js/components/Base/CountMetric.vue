@@ -50,7 +50,7 @@ export default {
     title: String,
     helpText: {},
     helpWidth: {},
-    chartData: Array,
+    chartData: () => ({}),
     urls: [''],
   },
 
