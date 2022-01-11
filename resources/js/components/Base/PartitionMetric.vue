@@ -75,7 +75,6 @@ export default {
         title: String,
         helpText: {},
         helpWidth: {},
-        urls: [''],
     },
 
     data: () => ({chartist: null}),
