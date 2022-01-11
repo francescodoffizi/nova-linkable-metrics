@@ -3,7 +3,7 @@
         :title="card.name"
         :chart-data="chartData"
         :loading="loading"
-        :urls="chartData.urls"
+        :urls="this.urls"
     />
 </template>
 
@@ -46,6 +46,7 @@ export default {
     data: () => ({
         loading: true,
         chartData: [],
+        urls: []
     }),
 
     watch: {
@@ -62,9 +63,10 @@ export default {
         fetch() {
             this.loading = true
 
-            Minimum(Nova.request(this.metricEndpoint)).then(({ data: { value: { value } } }) => {
+            Minimum(Nova.request(this.metricEndpoint)).then(({ data: { value: { value }, urls: [urls] } }) => {
                 this.chartData = value
                 this.loading = false
+                this.urls = urls;
             })
         },
     },
