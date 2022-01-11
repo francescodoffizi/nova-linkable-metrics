@@ -47,8 +47,8 @@ export default {
 
   props: {
     title: String,
-    helpText: {},
-    helpWidth: {},
+    helpText: Object,
+    helpWidth: Object,
     urls: [''],
   },
 
