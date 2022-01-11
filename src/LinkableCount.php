@@ -13,7 +13,7 @@ trait LinkableCount
 
     public function component()
     {
-        return 'linkable-'.$this->component;
+        return 'linkable-count-metric';
     }
 
     /**
