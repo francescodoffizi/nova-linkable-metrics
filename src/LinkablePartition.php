@@ -15,8 +15,8 @@ trait LinkablePartition
     public function result(array $value)
     {
         $linkablePartitionResult = new LinkablePartitionResult($value);
-        if (!empty($this->url)) {
-            $linkablePartitionResult->url($this->url);
+        if (!empty($this->urls)) {
+            $linkablePartitionResult->urls = $this->urls;
         }
         return $linkablePartitionResult;
     }

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Builder;
 trait Linkable
 {
     public $url = '';
+    public $urls = [''];
 
     public function component()
     {

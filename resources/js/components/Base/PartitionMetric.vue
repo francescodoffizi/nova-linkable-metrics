@@ -43,7 +43,11 @@
                         :style="{
                             backgroundColor: item.color,
                         }"
-                    />{{ item.label }} ({{ item.value }} - {{ item.percentage }}%)
+                    />
+                    <router-link tag="a" :to="urls[index]" :title="title"
+                                 class="cursor-pointer text-primary dim no-underline">
+                        {{ item.label }} ({{ item.value }} - {{ item.percentage }}%)
+                    </router-link>
                 </li>
             </ul>
         </div>
@@ -83,7 +87,7 @@ export default {
         helpText: {},
         helpWidth: {},
         chartData: Array,
-        url: '',
+        urls: [''],
     },
 
     data: () => ({ chartist: null }),

@@ -11,32 +11,19 @@ trait LinkableResult
      *
      * @var string
      */
-    public $url;
+    public $urls;
 
     /**
      * Set the metric value url.
      *
-     * @param  string  $url
+     * @param  array  $urls
      * @return $this
      */
-    public function url($url)
+    public function urls($urls)
     {
-        $this->url = $url;
+        $this->urls = $urls;
 
         return $this;
-    }
-
-    /**
-     * Set a link to a route
-     */
-    public function route($routeName, array $params = [], array $query = [])
-    {
-        $route = [
-            'name' => $routeName,
-            'params' => $params,
-            'query' => $query
-        ];
-        return $this->url(json_encode($route));
     }
 
     /**
@@ -47,7 +34,7 @@ trait LinkableResult
     public function jsonSerialize()
     {
         return array_merge(parent::jsonSerialize(), [
-            'url' => $this->url,
+            'urls' => $this->urls,
         ]);
     }
 
