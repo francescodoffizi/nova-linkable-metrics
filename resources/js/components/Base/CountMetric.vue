@@ -1,43 +1,17 @@
 <template>
   <loading-card :loading="loading" class="px-6 py-4">
-    <h3 class="flex mb-3 text-base text-80 font-bold">
-      <template v-for="option in urls">
-        <router-link tag="a" :to="option" :title="title" class="cursor-pointer text-primary dim no-underline">
-          {{ title }}
-          <span class="ml-auto font-semibold text-70 text-sm"
-          >({{ formattedTotal }} {{ __('total') }})</span
-          >
-        </router-link>
-      </template>
-    </h3>
-
-    <div v-if="helpText" class="absolute pin-r pin-b p-2">
-      <tooltip trigger="hover">
-        <icon
-            type="help"
-            viewBox="0 0 17 17"
-            height="16"
-            width="16"
-            class="cursor-pointer text-60 -mb-1"
-        />
-
-        <tooltip-content
-            slot="content"
-            v-html="helpText"
-            :max-width="helpWidth"
-        />
-      </tooltip>
-    </div>
-
     <div class="overflow-hidden overflow-y-auto max-h-90px">
       <ul class="list-reset">
-        <li v-for="item in formattedItems" class="text-xs text-80 leading-normal">
+        <li v-for="(item, index) in formattedItems" class="text-xs text-80 leading-normal">
                     <span
                         class="inline-block rounded-full w-2 h-2 mr-2"
                         :style="{
                             backgroundColor: item.color,
                         }"
-                    />{{ item.label }} ({{ item.value }} - {{ item.percentage }}%)
+                    />
+            <router-link tag="a" :to="urls[index]" :title="title" class="cursor-pointer text-primary dim no-underline">
+                {{ item.label }} ({{ item.value }} - {{ item.percentage }}%)
+            </router-link>
         </li>
       </ul>
     </div>
