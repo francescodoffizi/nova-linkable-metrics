@@ -3,7 +3,7 @@
         :title="card.name"
         :chart-data="chartData"
         :loading="loading"
-        :urls="this.card.urls"
+        :urls="chartData.urls"
     />
 </template>
 
