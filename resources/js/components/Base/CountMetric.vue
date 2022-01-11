@@ -49,7 +49,7 @@ export default {
     title: String,
     helpText: Object,
     helpWidth: Object,
-    urls: [''],
+    urls: Array,
   },
 
   data: () => ({ chartist: null }),
@@ -63,7 +63,7 @@ export default {
   mounted() {
     this.chartist = new Chartist.Pie(this.$refs.chart, this.formattedChartData, {
       donut: true,
-      donutWidth: 10,
+      donutWidth: 10,k
       donutSolid: true,
       startAngle: 270,
       showLabel: false,
