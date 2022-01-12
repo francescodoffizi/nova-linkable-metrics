@@ -131,10 +131,8 @@ export default {
         },
 
         formattedItems() {
-            console.log(this.chartData);
             return _(this.chartData)
                 .map((item, index) => {
-                    console.log(this.urls[index]);
                     return {
                         label: item.label,
                         value: item.value,
