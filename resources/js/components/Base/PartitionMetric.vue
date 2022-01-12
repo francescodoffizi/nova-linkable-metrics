@@ -33,10 +33,9 @@
                         :style="{
                             backgroundColor: item.color,
                         }"
-                    />
-                    <a class="cursor-pointer text-primary dim no-underline" href="{{item.url}}">
-                        {{ item.label }} ({{ item.value }} - {{ item.percentage }}%)
-                    </a>
+                    />{{ item.label }} ({{ item.value }} - {{ item.percentage }}%) - {{ item.url }}
+<!--                    <a class="cursor-pointer text-primary dim no-underline" href="{{item.url}}">
+                    </a>-->
                 </li>
             </ul>
         </div>
