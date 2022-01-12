@@ -75,8 +75,7 @@ export default {
     props: {
         title: String,
         helpText: {},
-        helpWidth: {},
-        urls: Array
+        helpWidth: {}
     },
 
     data: () => ({chartist: null}),
@@ -126,6 +125,7 @@ export default {
                 'rounded-b-lg',
                 'ct-chart',
                 'mr-4',
+                'ct-chart-pie',
                 this.formattedTotal <= 0 ? 'invisible' : '',
             ]
         },
