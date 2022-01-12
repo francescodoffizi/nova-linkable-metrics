@@ -78,7 +78,11 @@ export default {
         helpWidth: {}
     },
 
-    data: () => ({chartist: null}),
+    data: () => ({
+        chartist: null,
+        chartData: [],
+        urls: []
+    }),
 
     watch: {
         chartData: function (newData, oldData) {
