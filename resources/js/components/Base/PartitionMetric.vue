@@ -77,7 +77,7 @@ export default {
         helpText: {},
         helpWidth: {},
         chartData: [],
-        urls: []
+        urls: Array
     },
 
     data: () => ({chartist: null}),

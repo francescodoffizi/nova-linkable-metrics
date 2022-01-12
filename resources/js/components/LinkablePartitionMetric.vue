@@ -44,8 +44,7 @@ export default {
     },
 
     data: () => ({
-        loading: true,
-        chartData: []
+        loading: true
     }),
 
     watch: {
