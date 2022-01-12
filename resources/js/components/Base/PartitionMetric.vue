@@ -131,6 +131,8 @@ export default {
         },
 
         formattedItems() {
+            console.log(this.chartData);
+            console.log(this.urls);
             return _(this.chartData)
                 .map((item, index) => {
                     return {
