@@ -73,6 +73,8 @@ export default {
         title: String,
         helpText: {},
         helpWidth: {},
+        chartData: Array,
+        urls: Array
     },
 
     data: () => ({chartist: null}),
