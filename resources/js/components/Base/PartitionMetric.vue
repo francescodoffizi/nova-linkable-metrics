@@ -118,8 +118,12 @@ export default {
     },
 
     computed: {
-        chartData: [],
-        urls: [],
+        chartData() {
+            return this.chartData;
+        },
+        urls() {
+            return this.urls;
+        },
 
         link() {
             return JSON.parse(this.urls);
