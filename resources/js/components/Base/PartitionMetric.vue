@@ -34,10 +34,9 @@
                             backgroundColor: item.color,
                         }"
                     />
-                    <router-link tag="a" :to="item.url" :title="item.url"
-                                 class="cursor-pointer text-primary dim no-underline">
+                    <a class="cursor-pointer text-primary dim no-underline" href="{{item.url}}">
                         {{ item.label }} ({{ item.value }} - {{ item.percentage }}%)
-                    </router-link>
+                    </a>
                 </li>
             </ul>
         </div>
@@ -105,7 +104,6 @@ export default {
         renderChart() {
             this.chartist.update(this.formattedChartData);
             this.loading = false;
-            console.log(this.urls);
         },
 
         getItemColor(item, index) {
@@ -136,6 +134,7 @@ export default {
         formattedItems() {
             return _(this.chartData)
                 .map((item, index) => {
+                    console.log(this.urls[index]);
                     return {
                         label: item.label,
                         value: item.value,
