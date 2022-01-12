@@ -138,7 +138,6 @@ export default {
                         label: item.label,
                         value: item.value,
                         color: this.getItemColor(item, index),
-                        url: this.urls[index],
                         percentage:
                             this.formattedTotal > 0
                                 ? ((item.value * 100) / this.formattedTotal).toFixed(2)
