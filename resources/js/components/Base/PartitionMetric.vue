@@ -33,9 +33,11 @@
                         :style="{
                             backgroundColor: item.color,
                         }"
-                    />{{ item.label }} ({{ item.value }} - {{ item.percentage }}%) - {{ item.url }}
-<!--                    <a class="cursor-pointer text-primary dim no-underline" href="{{item.url}}">
-                    </a>-->
+                    />
+                    <router-link tag="a" :to="item.url" :title="item.url"
+                                 class="cursor-pointer text-primary dim no-underline">
+                        {{ item.label }} ({{ item.value }} - {{ item.percentage }}%)
+                    </router-link>
                 </li>
             </ul>
         </div>
