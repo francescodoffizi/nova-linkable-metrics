@@ -75,7 +75,9 @@ export default {
     props: {
         title: String,
         helpText: {},
-        helpWidth: {}
+        helpWidth: {},
+        chartData: [],
+        urls: []
     },
 
     data: () => ({chartist: null}),
@@ -114,13 +116,6 @@ export default {
     },
 
     computed: {
-        chartData() {
-            return this.chartData;
-        },
-        urls() {
-            return this.urls;
-        },
-
         link() {
             return JSON.parse(this.urls);
         },
