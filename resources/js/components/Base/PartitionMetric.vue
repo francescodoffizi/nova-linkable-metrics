@@ -35,6 +35,7 @@
                         }"
                     />
                     <router-link tag="a" :to="item.url" :title="item.url"
+                                 target="_blank"
                                  class="cursor-pointer text-primary dim no-underline">
                         {{ item.label }} ({{ item.value }} - {{ item.percentage }}%)
                     </router-link>
@@ -75,7 +76,6 @@ export default {
         title: String,
         helpText: {},
         helpWidth: {},
-        chartData: Array,
         urls: Array
     },
 
@@ -88,7 +88,7 @@ export default {
     },
 
     mounted() {
-        this.chartist = new Chartist.Pie('.ct-chart', this.formattedChartData, {
+        this.chartist = new Chartist.Pie('.ct-chart-pie', this.formattedChartData, {
             donut: true,
             donutWidth: 10,
             donutSolid: true,
@@ -135,8 +135,6 @@ export default {
         },
 
         formattedItems() {
-            console.log(this.chartData);
-            console.log(this.urls);
             return _(this.chartData)
                 .map((item, index) => {
                     return {
