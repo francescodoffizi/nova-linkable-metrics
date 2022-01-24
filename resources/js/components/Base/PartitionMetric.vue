@@ -35,7 +35,6 @@
                         }"
                     />
                     <router-link tag="a" :to="item.url" :title="item.url"
-                                 target="_blank"
                                  class="cursor-pointer text-primary dim no-underline">
                         {{ item.label }} ({{ item.value }} - {{ item.percentage }}%)
                     </router-link>
