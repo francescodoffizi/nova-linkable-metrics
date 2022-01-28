@@ -45,13 +45,7 @@ export default {
         },
     },
     data: () => ({
-        loading: true,
-        value: '',
-        data: [],
-        format: '(0[.]00a)',
-        prefix: '',
-        suffix: '',
-        suffixInflection: true
+        data: []
     }),
     watch: {
         resourceId() {
