@@ -11,7 +11,7 @@
         :suffix-inflection="suffixInflection"
         :selected-range-key="selectedRangeKey"
         :loading="loading"
-        :url="this.card.url"
+        :url="this.url"
     />
 </template>
 
