@@ -12,6 +12,7 @@ trait LinkableResult
      * @var string
      */
     public $url;
+    public $urls;
 
     /**
      * Set the metric value url.
@@ -48,7 +49,20 @@ trait LinkableResult
     {
         return array_merge(parent::jsonSerialize(), [
             'url' => $this->url,
+            'urls' => $this->urls
         ]);
     }
 
+    /**
+     * Set the metric value url.
+     *
+     * @param  array  $urls
+     * @return $this
+     */
+    public function urls($urls)
+    {
+        $this->urls = $urls;
+
+        return $this;
+    }
 }
