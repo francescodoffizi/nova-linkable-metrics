@@ -39,7 +39,7 @@
 
         <p class="flex items-center text-4xl mb-4">
             <template v-if="url">
-                <router-link tag="a" :to="this.link" :title="title" class="cursor-pointer text-primary dim no-underline">
+                <router-link tag="a" :to="this.url" :title="title" class="cursor-pointer text-primary dim no-underline">
                     {{ formattedValue }}
                     <span v-if="suffix" class="ml-2 text-sm font-bold text-80">{{ formattedSuffix }}</span>
                 </router-link>
