@@ -38,7 +38,6 @@
         </div>
 
         <p class="flex items-center text-4xl mb-4">
-            teste {{ formattedValue }} - {{ url }}
             <template v-if="url">
                 <router-link tag="a" :to="this.link" :title="title" class="cursor-pointer text-primary dim no-underline">
                     {{ formattedValue }}

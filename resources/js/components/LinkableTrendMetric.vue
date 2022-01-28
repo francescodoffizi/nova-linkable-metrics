@@ -92,6 +92,7 @@ export default {
                     this.suffixInflection = suffixInflection
                     this.loading = false
                     this.url = url;
+                    console.log(url);
                 }
             )
         },
