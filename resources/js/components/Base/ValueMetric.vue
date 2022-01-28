@@ -179,9 +179,7 @@ export default {
 
         formattedValue() {
             if (!this.isNullValue) {
-                return (
-                this.prefix + Nova.formatNumber(new String(this.value), this.format)
-                )
+                return Nova.formatNumber(new String(this.value), this.format);
             }
 
             return ''

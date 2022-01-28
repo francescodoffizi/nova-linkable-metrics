@@ -11,7 +11,7 @@
         :suffix-inflection="suffixInflection"
         :selected-range-key="selectedRangeKey"
         :loading="loading"
-        :url="this.card.url"
+        :url="this.url"
     />
 </template>
 
@@ -89,7 +89,7 @@ export default {
             Minimum(Nova.request().get(this.metricEndpoint, this.rangePayload)).then(
                 ({
                     data: {
-                        value: { value, previous, prefix, suffix, suffixInflection, format },
+                        value: { value, previous, prefix, suffix, suffixInflection, format, url },
                     },
                 }) => {
                     this.value = value
@@ -99,6 +99,7 @@ export default {
                     this.suffixInflection = suffixInflection
                     this.previous = previous
                     this.loading = false
+                    this.url = url;
                 }
             )
         },
