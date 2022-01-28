@@ -70,7 +70,7 @@ export default {
             Minimum(Nova.request().get(this.metricEndpoint, this.metricPayload)).then(
                 ({
                      data: {
-                         value: { labels, trend, value, prefix, suffix, suffixInflection, format },
+                         value: { labels, trend, value, prefix, suffix, suffixInflection, format, url },
                      },
                  }) => {
                     this.value = value
@@ -91,7 +91,7 @@ export default {
                     this.suffix = suffix || this.suffix
                     this.suffixInflection = suffixInflection
                     this.loading = false
-                    console.log(this.data);
+                    this.url = url;
                 }
             )
         },
