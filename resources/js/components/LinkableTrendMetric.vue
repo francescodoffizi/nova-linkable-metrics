@@ -51,8 +51,7 @@ export default {
         format: '(0[.]00a)',
         prefix: '',
         suffix: '',
-        suffixInflection: true,
-        selectedRangeKey: null,
+        suffixInflection: true
     }),
     watch: {
         resourceId() {
