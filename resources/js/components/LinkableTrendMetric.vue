@@ -91,6 +91,7 @@ export default {
                     this.suffix = suffix || this.suffix
                     this.suffixInflection = suffixInflection
                     this.loading = false
+                    console.log(this.data);
                 }
             )
         },
